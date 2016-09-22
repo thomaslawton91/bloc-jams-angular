@@ -1,12 +1,20 @@
 module.exports = function(grunt) {
+    
+    grunt.registerTask( 'welcome', 'Saying hi!', function() {
+        
+        grunt.log.writeln('Welcome to Grunt');
+    });
 
-    grunt.registerTask( 'default', [ 'clean', 'copy', 'hapi', 'watch'] );
+    grunt.registerTask( 'default', [ 'welcome','clean', 'copy', 'hapi', 'watch'] );
 
     grunt.registerTask( 'build', [ 'clean', 'copy' ] );
 
     grunt.registerTask( 'run', [ 'hapi', 'watch' ]);
 
     grunt.initConfig({
+        
+        welcome: {function() {
+            grunt.log.writeln('Welcome to Grunt')}},
 
         watch: {
             hapi: {
