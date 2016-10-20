@@ -21,7 +21,7 @@
                 currentSong.playing = null;
             }
 
-            currentBuzzObject = new buzz.sound(song, {
+            currentBuzzObject = new buzz.sound(song.audioUrl, {
                 formats: ['mp3'],
                 preload: true
             });
