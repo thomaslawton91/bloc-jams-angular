@@ -1,8 +1,13 @@
 (function () {
     function SongPlayer() {
         var SongPlayer = {};
-        var song = '/assets/music/blue.mp3';
+
+        /**
+         * @desc currently playing song
+         * @type {Object};
+         **/
         var currentSong = null;
+
         /**
          * @desc Buzz object audio file
          * @type {Object}
@@ -15,25 +20,39 @@
          * @desc Stops currently playing song and loads new audio file as currentBuzzObject
          * @param {Object} song
          **/
-        var setSong = function(song) {
+        var setSong = function (song) {
             if (currentBuzzObject) {
                 currentBuzzObject.stop();
                 currentSong.playing = null;
             }
 
-            currentBuzzObject = new buzz.sound(song, {
+            currentBuzzObject = new buzz.sound(song.audioUrl, {
                 formats: ['mp3'],
                 preload: true
             });
 
             currentSong = song;
         };
+        
+        /**
+         * @method playSong
+         * @desc plays selected song and sets to playing
+         * @param {Object} song
+         **/
+        var playSong = function (song) {
+            currentBuzzObject.play();
+            song.playing = true;
+        };
 
-        SongPlayer.play = function(song) {
+        /**
+         * @method play
+         * @desc pauses song if playing else pauses song if it is currently playing
+         * @param {Object} song
+         **/
+        SongPlayer.play = function (song) {
             if (currentSong !== song) {
                 setSong(song);
-                currentBuzzObject.play();
-                song.playing = true;
+                playSong(song);
             } else if (currentSong === song) {
                 if (currentBuzzObject.isPaused()) {
                     currentBuzzObject.play();
@@ -41,11 +60,16 @@
             }
         };
 
-        SongPlayer.pause = function(song) {
+        /**
+         * @method pause
+         * @desc pauses selected song
+         * @param {Object} song
+         **/
+        SongPlayer.pause = function (song) {
             currentBuzzObject.pause();
             song.playing = false;
         };
-
+        
         return SongPlayer;
     }
 
