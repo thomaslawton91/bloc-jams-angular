@@ -55,6 +55,7 @@
             SongPlayer.currentSong = song;
         };
 
+<<<<<<< Updated upstream
 
         /**
          * @method play
@@ -67,6 +68,8 @@
          * @type {Object};
          **/
         
+=======
+>>>>>>> Stashed changes
         /**
         * @function getSongIndex
         * @desc fetches song index of songs in current album
@@ -82,6 +85,17 @@
         SongPlayer.currentSong = null;
         
         /**
+<<<<<<< Updated upstream
+=======
+        * @desc Current playback time (in seconds) of currently playing song
+        * @type {Number}
+        **/
+        SongPlayer.currentTime = null;
+        
+        SongPlayer.volume = 50;
+        
+        /**
+>>>>>>> Stashed changes
         * @method play
         * @desc plays chosen song
         * @params {Object} song
@@ -144,6 +158,26 @@
             }
         };
         
+<<<<<<< Updated upstream
+=======
+        /**
+        * @function setCurrentTime
+        * @desc Set current time (in seconds) of currently playing song
+        * @param {Number} time
+        **/
+        SongPlayer.setCurrentTime = function(time) {
+            if (currentBuzzObject) {
+                currentBuzzObject.setTime(time);
+            }
+        };
+        
+        SongPlayer.setVolume = function(volume) {
+            if (currentBuzzObject) {
+                currentBuzzObject.setVolume(volume);
+            }
+        };
+        
+>>>>>>> Stashed changes
         return SongPlayer;
     }
 
