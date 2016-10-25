@@ -51,12 +51,6 @@
                 formats: ['mp3'],
                 preload: true
             });
-            
-            currentBuzzObject.bind('timeupdate', function() {
-                $rootScope.$apply(function() {
-                    SongPlayer.currentTime = currentBuzzObject.getTime();
-                });
-            });
 
             SongPlayer.currentSong = song;
         };
