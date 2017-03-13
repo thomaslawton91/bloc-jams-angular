@@ -1,6 +1,6 @@
-## Bloc Frontend Project Starter
-
-A starter application for student projects in Bloc's [Frontend Web Development Course](https://www.bloc.io/frontend-development-bootcamp).
+# BlocJams Angular
+BlocJams Angular is a refactor of BlocJams using Angular JS. 
+BlocJams Angular is an SPA using Angular routing in an effort to learn how to build SPAs as well as how to write ANgular.
 
 ## Configuration
 
